@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner | Scan Barcode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EEE2DE;
+        }
+
+        .mainpage {
+            background-color: #EA906C;
+            border-radius: 15px;
+            height: 91vh;
+            margin: auto;
+            margin-top: 30px;
+            width: 80%;
+        }
+
+        .navbar {
+            background-color: #2B2A4C;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            height: fit-content;
+        }
+
+        .navbar-button {
+            background-color: inherit;
+            border: none;
+            margin-left: 4%;
+            border-radius: 30px;
+            padding: 10px;
+            display: inline-block;
+            width: 15%;
+            vertical-align: middle;
+        }
+
+        .navbar-button:hover a {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        .navbar-button:hover {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button a {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button:hover a {
+            background-color: #2B2A4C;
+            color: #B31312;
+        }
+
+        #special-button:hover {
+            background-color: #2B2A4C;
+            color: #B31312;
+        }
+
+        .navbar-text {
+            color: #B31312;
+            font-family: Montserrat;
+            font-size: xx-large;
+            font-weight: 900;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 30px;
+            width: 30%;
+        }
+
+        .navbar-button-text {
+            color: #B31312;
+            font-family: Montserrat;
+            font-size: larger;
+            text-decoration: none;
+            font-weight: 1000;
+        }
+
+        #video-feed {
+            border-radius: 15px;
+            height: 75vh;
+            width: 59%;
+            float: left;
+        }
+
+        .main-body {
+            width: 37%;
+            float: right;
+            margin-right: 2%;
+        }
+
+        .body-text {
+            color: #2B2A4C;
+            font-family: Montserrat;
+            font-size: larger;
+        }
+
+        #body-header {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainpage">
+        <div class="navbar">
+            <p class="navbar-text">Barcode Scanner</p>
+            <button class="navbar-button" style="margin-left:30%;"><a class="navbar-button-text"
+                    href="{{ url_for('getValues') }}">View Barcode</a></button>
+            <button class="navbar-button" id="special-button"><a class="navbar-button-text"
+                    href="{{ url_for('homepage') }}">Scan Barcode</a></button>
+        </div>
+        <img id="video-feed" src="{{ url_for('liveFeed') }}" alt="Could not get live feed!">
+        <div class="main-body">
+            <p class="body-text" id="body-header">Barcode Scanner!</p>
+            <p class="body-text">Put your QR code in front of your webcam to scan and store its values!</p>
+            <br>
+            <p class="body-text">A green/red box will show up aorund the QR code when it is scanned!</p>
+            <br>
+            <p class="body-text">A green box means that the QR code has been scanned and the data has been received
+                successfully, but a red box means that the QR code has been identified but the information has not been
+                scanned!
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

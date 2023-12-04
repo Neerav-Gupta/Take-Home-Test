@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scanner | View Values</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #EEE2DE;
+        }
+
+        .mainpage {
+            background-color: #EA906C;
+            border-radius: 15px;
+            height: max-content;
+            margin: auto;
+            margin-top: 30px;
+            width: 80%;
+        }
+
+        .navbar {
+            background-color: #2B2A4C;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            height: fit-content;
+        }
+
+        .navbar-button {
+            background-color: inherit;
+            border: none;
+            margin-left: 4%;
+            border-radius: 30px;
+            padding: 10px;
+            display: inline-block;
+            width: 15%;
+            vertical-align: middle;
+        }
+
+        .navbar-button:hover a {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        .navbar-button:hover {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button a {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button {
+            background-color: #B31312;
+            color: #2B2A4C;
+        }
+
+        #special-button:hover a {
+            background-color: #2B2A4C;
+            color: #B31312;
+        }
+
+        #special-button:hover {
+            background-color: #2B2A4C;
+            color: #B31312;
+        }
+
+        .navbar-text {
+            color: #B31312;
+            font-family: Montserrat;
+            font-size: xx-large;
+            font-weight: 900;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 30px;
+            width: 30%;
+        }
+
+        .navbar-button-text {
+            color: #B31312;
+            font-family: Montserrat;
+            font-size: larger;
+            text-decoration: none;
+            font-weight: 1000;
+        }
+
+        .body-text {
+            color: #2B2A4C;
+            font-family: Montserrat;
+            font-size: larger;
+        }
+
+        #body-header {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 45px;
+        }
+
+        table {
+            font-family: Montserrat;
+            text-align: left;
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 80%;
+        }
+
+        th {
+            font-weight: bolder;
+            font-size: large;
+        }
+
+        tr,
+        th,
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #2B2A4C;
+            background-color: inherit;
+        }
+
+        .main-body {
+            border-radius: 15px;
+            margin: auto;
+            background-color: #B31312;
+            width: 55%;
+        }
+
+        .special-tr:hover {
+            background-color: #d46262;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainpage">
+        <div class="navbar">
+            <p class="navbar-text">Barcode Scanner</p>
+            <button class="navbar-button" style="margin-left:30%;"><a class="navbar-button-text"
+                    href="{{ url_for('getValues') }}">View Barcode</a></button>
+            <button class="navbar-button" id="special-button"><a class="navbar-button-text"
+                    href="{{ url_for('homepage') }}">Scan Barcode</a></button>
+        </div>
+        <p class="body-text" id="body-header">View Scanned Barcode Data:</p>
+        <div class="main-body">
+            <br>
+            <table>
+                <tr>
+                    <th><b>#</b></th>
+                    <th><b>Data</b></th>
+                </tr>
+                {% for i in range(barcodes|length) %}
+                <tr class="special-tr">
+                    <td><b>{{i+1}}</b></td>
+                    <td>{{barcodes[i]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+        </div>
+        <br><br>
+    </div>
+</body>
+
+</html>
