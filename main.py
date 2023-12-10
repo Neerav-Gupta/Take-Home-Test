@@ -20,7 +20,7 @@ with tbaapiv3client.ApiClient(configuration) as api_client:
         print()
         print("Events Participated in {a} by Team {b}".format(a=userYear, b=userTeam))
         print(
-            "------------------------------------"
+            "--------------------------------"
             + ("-" * (len(userTeam) + len(str(userYear))))
         )
         events = []
